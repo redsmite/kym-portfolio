@@ -67,9 +67,9 @@ export default function Contact() {
 
                 <div className="space-y-3">
                   {[
-                    { label: 'Role',          value: 'Full-Stack Developer & Network Admin' },
+                    { label: 'Role',          value: 'Full-Stack Developer & Records Officer' },
                     { label: 'Agency',        value: 'Department of Environment & Natural Resources' },
-                    { label: 'Division',      value: 'ICT Infostructure & Connectivity' },
+                    { label: 'Division',      value: 'Licenses, Patents and Deeds Division' },
                     { label: 'Certification', value: 'CCNA — Cisco Certified Network Associate' },
                     { label: 'Status',        value: 'Open to collaboration' },
                   ].map(({ label, value }) => (
