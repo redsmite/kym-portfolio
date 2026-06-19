@@ -3,30 +3,64 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
   body {
-    background-color: #060d1a;
-    color: #e2e8f0;
+    background-color: #ffffff;
+    color: #1a202c;
     font-family: 'Inter', system-ui, sans-serif;
   }
   ::selection {
-    background-color: #2d7a3a;
+    background-color: #1a7a3a;
     color: white;
   }
 }
 
 @layer utilities {
-  .text-green-glow {
-    text-shadow: 0 0 20px rgba(74, 173, 91, 0.4);
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
   }
-  .border-green-glow {
-    box-shadow: 0 0 0 1px rgba(74, 173, 91, 0.2), 0 0 20px rgba(74, 173, 91, 0.05);
+  .card:hover {
+    box-shadow: 0 4px 24px rgba(13, 94, 166, 0.10);
+    border-color: #1a7fd4;
+    transform: translateY(-2px);
   }
-  .card-glass {
-    background: rgba(15, 32, 64, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(74, 173, 91, 0.12);
+  .card-flat {
+    background: #f7f8fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+  }
+  .section-alt { background-color: #f7f8fa; }
+  .hero-gradient {
+    background: linear-gradient(135deg, #e8f2fc 0%, #e8f5ec 100%);
+  }
+  .btn-primary {
+    background: #0d5ea6;
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1a7fd4; }
+  .btn-outline {
+    border: 1.5px solid #0d5ea6;
+    color: #0d5ea6;
+    padding: 0.625rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-outline:hover {
+    background: #e8f2fc;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }

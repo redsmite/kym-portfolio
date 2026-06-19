@@ -33,7 +33,7 @@ const projects = [
   },
   {
     name: 'WRUS Asset Tracker',
-    description: 'Asset tracking system for the Water Resources Unit, deployed on Firebase for real-time monitoring and reporting.',
+    description: 'Asset tracking system for the Water Resources Utilization Section, deployed on Firebase for real-time monitoring and reporting.',
     url: 'https://wrus-asset-tracking-system.web.app/',
     tags: ['Firebase', 'React', 'Asset Management'],
     type: 'public',
@@ -61,83 +61,94 @@ const projects = [
   },
 ]
 
-const typeStyles = {
-  gov: 'border-denr-green/20',
-  public: 'border-blue-500/20',
-}
-
-const typeBadge = {
-  gov: 'bg-denr-muted/20 text-denr-light border-denr-green/30',
-  public: 'bg-blue-900/20 text-blue-400 border-blue-500/30',
-}
-
 export default function Projects() {
+  const govProjects = projects.filter(p => p.type === 'gov')
+  const publicProjects = projects.filter(p => p.type === 'public')
+
   return (
     <section id="projects" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <SectionLabel label="01 // projects" />
+      <div className="max-w-6xl mx-auto">
+        <SectionLabel label="Deployed Projects" />
 
-        <div className="flex items-end justify-between mt-6 mb-12 flex-wrap gap-4">
-          <h2 className="text-3xl font-sans font-semibold text-white">
-            Deployed systems & public tools
+        <div className="flex items-end justify-between mt-4 mb-12 flex-wrap gap-4">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Systems & public tools
           </h2>
-          <div className="flex gap-3 font-mono text-xs">
-            <span className="flex items-center gap-1.5 text-slate-500">
-              <span className="w-2 h-2 rounded-full bg-denr-light" /> Government
+          <div className="flex gap-4 text-xs font-medium">
+            <span className="flex items-center gap-1.5 text-gray-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-denr-green" /> Government (DENR)
             </span>
-            <span className="flex items-center gap-1.5 text-slate-500">
-              <span className="w-2 h-2 rounded-full bg-blue-400" /> Public
+            <span className="flex items-center gap-1.5 text-gray-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-denr-blue" /> Public
             </span>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((project) => (
-            <a
-              key={project.name}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`card-glass rounded-xl p-5 flex flex-col gap-4 hover:scale-[1.02] transition-all duration-200 group border ${typeStyles[project.type]}`}
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-navy-800 border border-slate-700/50 flex items-center justify-center">
-                    {project.type === 'gov'
-                      ? <Server size={16} className="text-denr-light" />
-                      : <Globe size={16} className="text-blue-400" />
-                    }
-                  </div>
-                  
-                  {/* LIVE INDICATOR BADGE */}
-                  <div className="flex items-center gap-1.5 px-2 py-0.5 bg-red-950/30 border border-red-500/20 rounded-md font-mono text-[10px] tracking-wider text-red-400">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                    </span>
-                    LIVE
-                  </div>
-                </div>
+        {/* Government systems */}
+        <div className="mb-10">
+          <p className="text-xs font-semibold text-denr-green uppercase tracking-widest mb-5 flex items-center gap-2">
+            <Server size={12} /> Government Systems
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {govProjects.map(project => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
 
-                <ExternalLink size={14} className="text-slate-600 group-hover:text-slate-400 transition-colors mt-1" />
-              </div>
-
-              <div>
-                <h3 className="font-mono font-semibold text-white text-sm mb-2">{project.name}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{project.description}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 mt-auto">
-                {project.tags.map(tag => (
-                  <span key={tag} className={`px-2 py-0.5 font-mono text-xs border rounded ${typeBadge[project.type]}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </a>
-          ))}
+        {/* Public tools */}
+        <div>
+          <p className="text-xs font-semibold text-denr-blue uppercase tracking-widest mb-5 flex items-center gap-2">
+            <Globe size={12} /> Public Tools
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {publicProjects.map(project => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
+  )
+}
+
+function ProjectCard({ project }) {
+  const isGov = project.type === 'gov'
+  return (
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="card p-5 flex flex-col gap-3 group"
+    >
+      <div className="flex items-start justify-between">
+        <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+          isGov ? 'bg-denr-green-pale' : 'bg-denr-blue-pale'
+        }`}>
+          {isGov
+            ? <Server size={15} className="text-denr-green" />
+            : <Globe size={15} className="text-denr-blue" />
+          }
+        </div>
+        <ExternalLink size={13} className="text-gray-300 group-hover:text-denr-blue transition-colors mt-1" />
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-gray-900 text-sm mb-1">{project.name}</h3>
+        <p className="text-gray-400 text-xs leading-relaxed">{project.description}</p>
+      </div>
+
+      <div className="flex flex-wrap gap-1.5 mt-auto">
+        {project.tags.map(tag => (
+          <span key={tag} className={`px-2 py-0.5 text-xs rounded-full font-medium ${
+            isGov
+              ? 'bg-denr-green-pale text-denr-green'
+              : 'bg-denr-blue-pale text-denr-blue'
+          }`}>
+            {tag}
+          </span>
+        ))}
+      </div>
+    </a>
   )
 }

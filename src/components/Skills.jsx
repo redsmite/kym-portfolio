@@ -4,74 +4,57 @@ import { SectionLabel } from './About'
 const skillGroups = [
   {
     category: 'Development & Tools',
-    color: 'denr',
-    skills: [
-      'React', 'React Native', 'Node.js / Express', 'Laravel', 'Django', 'WordPress', "JQuery",
-      'FastAPI', 'Docker', 'GitHub', 'Kotlin / Gradle', 'SQL',
-    ]
+    color: 'blue',
+    skills: ['React', 'React Native', 'Node.js / Express', 'Laravel', 'Django', 'FastAPI', 'Docker', 'GitHub', 'Kotlin / Gradle', 'SQL'],
   },
   {
     category: 'Networking',
-    color: 'blue',
-    skills: [
-      'VLAN / VTP', 'Spanning Tree (STP)', 'OSPF / EIGRP / RIP', 'DHCP / DNS',
-      'Load Balancing', 'Port Aggregation', 'ACL', 'VPN / SSH / FTP',
-      'IPv4 / IPv6 / Subnetting', 'TCP/IP Stack',
-    ]
+    color: 'green',
+    skills: ['VLAN / VTP', 'Spanning Tree', 'OSPF / EIGRP / RIP', 'DHCP / DNS', 'Load Balancing', 'Port Aggregation', 'ACL', 'VPN / SSH / FTP', 'IPv4 / IPv6', 'Subnetting'],
   },
   {
     category: 'Cloud & Deployment',
-    color: 'purple',
-    skills: [
-      'Firebase', 'Supabase', 'Vercel', 'Netlify',
-    ]
+    color: 'blue',
+    skills: ['Firebase', 'Supabase', 'Vercel', 'Netlify'],
   },
   {
     category: 'Cybersecurity',
     color: 'red',
-    skills: [
-      'Firewall Config', 'Nmap', 'MITRE ATT&CK', 'Kali Linux',
-      'Wireshark', 'SANS Threat Intelligence',
-    ]
+    skills: ['Firewall Config', 'Nmap', 'MITRE ATT&CK', 'Kali Linux', 'Wireshark', 'SANS Threat Intel'],
   },
   {
     category: 'Automation & AI',
-    color: 'yellow',
-    skills: [
-      'Python Libraries', 'PowerShell Scripting',
-      'Claude Code', 'GitHub Copilot', 'AI-Assisted Dev',
-    ]
+    color: 'purple',
+    skills: ['Python Libraries', 'PowerShell Scripting', 'Claude Code', 'GitHub Copilot', 'AI-Assisted Dev'],
   },
   {
     category: 'Government Admin',
-    color: 'slate',
-    skills: [
-      'Records Management', 'Documentation',
-      'Procurement Coordination', 'Budget Preparation & Monitoring',
-    ]
+    color: 'gray',
+    skills: ['Records Management', 'Documentation', 'Procurement Coordination', 'Budget Monitoring'],
   },
 ]
 
 const colorMap = {
-  denr:   { tag: 'border-denr-green/30 bg-denr-muted/15 text-denr-light',    header: 'text-denr-light',    dot: 'bg-denr-light' },
-  blue:   { tag: 'border-blue-500/30 bg-blue-900/15 text-blue-400',          header: 'text-blue-400',      dot: 'bg-blue-400' },
-  purple: { tag: 'border-purple-500/30 bg-purple-900/15 text-purple-400',    header: 'text-purple-400',    dot: 'bg-purple-400' },
-  red:    { tag: 'border-red-500/30 bg-red-900/15 text-red-400',             header: 'text-red-400',       dot: 'bg-red-400' },
-  yellow: { tag: 'border-yellow-500/30 bg-yellow-900/15 text-yellow-400',    header: 'text-yellow-400',    dot: 'bg-yellow-400' },
-  slate:  { tag: 'border-slate-500/30 bg-slate-800/30 text-slate-400',       header: 'text-slate-400',     dot: 'bg-slate-400' },
+  blue:   { bg: '#e8f2fc', text: '#0d5ea6', border: '#bdd6f5', dot: '#0d5ea6' },
+  green:  { bg: '#e8f5ec', text: '#1a7a3a', border: '#b2dfc0', dot: '#1a7a3a' },
+  red:    { bg: '#fef2f2', text: '#b91c1c', border: '#fecaca', dot: '#ef4444' },
+  purple: { bg: '#f5f3ff', text: '#6d28d9', border: '#ddd6fe', dot: '#7c3aed' },
+  gray:   { bg: '#f7f8fa', text: '#4a5568', border: '#e2e8f0', dot: '#718096' },
 }
 
 export default function Skills() {
   const [active, setActive] = useState(null)
 
   return (
-    <section id="skills" className="py-24 px-6 bg-navy-900/40">
-      <div className="max-w-5xl mx-auto">
-        <SectionLabel label="03 // skills" />
+    <section id="skills" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <SectionLabel label="Skills & Expertise" />
 
-        <h2 className="text-3xl font-sans font-semibold text-white mt-6 mb-12">
-          A broad stack, built for government-scale problems
-        </h2>
+        <div className="flex items-end justify-between mt-4 mb-12 flex-wrap gap-4">
+          <h2 className="text-3xl font-bold text-gray-900">
+            A broad stack, built for government-scale problems
+          </h2>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillGroups.map((group) => {
@@ -82,17 +65,20 @@ export default function Skills() {
                 key={group.category}
                 onMouseEnter={() => setActive(group.category)}
                 onMouseLeave={() => setActive(null)}
-                className={`card-glass rounded-xl p-5 transition-all duration-200 cursor-default ${isActive ? 'border-opacity-40 scale-[1.01]' : ''}`}
+                className={`card p-5 cursor-default ${isActive ? 'scale-[1.01]' : ''}`}
+                style={isActive ? { borderColor: c.border, boxShadow: `0 4px 20px ${c.bg}` } : {}}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className={`w-2 h-2 rounded-full ${c.dot}`} />
-                  <h3 className={`font-mono text-xs font-medium tracking-wider uppercase ${c.header}`}>
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: c.dot }} />
+                  <h3 className="text-xs font-bold uppercase tracking-widest" style={{ color: c.text }}>
                     {group.category}
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map(skill => (
-                    <span key={skill} className={`px-2 py-1 font-mono text-xs border rounded ${c.tag}`}>
+                    <span key={skill}
+                          className="px-2.5 py-1 text-xs font-medium rounded-full border"
+                          style={{ background: c.bg, color: c.text, borderColor: c.border }}>
                       {skill}
                     </span>
                   ))}
