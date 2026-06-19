@@ -52,6 +52,13 @@ const projects = [
     tags: ['Firebase', 'Networking', 'Education'],
     type: 'public',
   },
+  {
+    name: 'WRUS ENRA',
+    description: 'Interactive educational used to teach ENRA student with Quizzes, Power Point Presentation, Flash Cards, Learning Modules, Glossary, and Video Reference',
+    url: 'https://wrus.vercel.app/',
+    tags: ['React', 'Vercel', 'ENRA', 'Education'],
+    type: 'public',
+  },
 ]
 
 const typeStyles = {
