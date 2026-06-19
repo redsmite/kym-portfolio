@@ -1,5 +1,6 @@
 import React from 'react'
 import { MapPin, Building2, Award } from 'lucide-react'
+import photo from '../assets/photo.jpg'
 
 const highlights = [
   { icon: Building2, label: 'Employer', value: 'DENR-NCR, Philippines' },
@@ -12,14 +13,18 @@ export default function About() {
     <section id="about" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
 
-        <SectionLabel label="01 // about" />
+        <SectionLabel label="02 // about" />
 
         <div className="grid md:grid-cols-2 gap-16 items-start mt-12">
           {/* Photo + info */}
           <div>
             <div className="relative inline-block mb-8">
               <div className="w-52 h-52 rounded-2xl overflow-hidden border-2 border-denr-green/30">
-                {/* Placeholder - replace src with actual photo path after setup */}
+                <img 
+                  src={photo} 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
+                />
                 <div className="w-full h-full bg-navy-800 flex items-center justify-center">
                   <span className="font-mono text-denr-light text-4xl font-semibold">K</span>
                 </div>

@@ -6,7 +6,7 @@ const skillGroups = [
     category: 'Development & Tools',
     color: 'denr',
     skills: [
-      'React', 'React Native', 'Node.js / Express', 'Laravel', 'Django',
+      'React', 'React Native', 'Node.js / Express', 'Laravel', 'Django', 'WordPress', "JQuery",
       'FastAPI', 'Docker', 'GitHub', 'Kotlin / Gradle', 'SQL',
     ]
   },
@@ -67,7 +67,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-6 bg-navy-900/40">
       <div className="max-w-5xl mx-auto">
-        <SectionLabel label="02 // skills" />
+        <SectionLabel label="03 // skills" />
 
         <h2 className="text-3xl font-sans font-semibold text-white mt-6 mb-12">
           A broad stack, built for government-scale problems

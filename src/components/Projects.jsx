@@ -5,21 +5,21 @@ import { SectionLabel } from './About'
 const projects = [
   {
     name: 'iCOPS',
-    description: 'Internal government compliance and operations system for DENR-NCR, handling regulatory workflows and document processing.',
+    description: 'DENR-NCR i-Centralized Online Permitting and Services System.',
     url: 'https://denrncrsys.online:8208/',
     tags: ['Government', 'Web App', 'Internal'],
     type: 'gov',
   },
   {
     name: 'WIIMS',
-    description: 'Wildlife Information and Inventory Management System — tracks and manages wildlife permit data for DENR-NCR.',
+    description: 'WRUS Integrated Information Management System — tracks and manages water permit and water user data for DENR-NCR.',
     url: 'https://denrncrsys.online:8014/',
     tags: ['Government', 'Inventory', 'Internal'],
     type: 'gov',
   },
   {
     name: 'COTS',
-    description: 'Compliance and Online Transaction System for DENR-NCR, streamlining citizen-facing permit and transaction workflows.',
+    description: 'Certificate of Transshipment Online System, streamlining transshipment certificates from Port lntegrated Clearance Office (PICO).',
     url: 'https://denrncrsys.online:8001/',
     tags: ['Government', 'Transactions', 'Internal'],
     type: 'gov',
@@ -68,7 +68,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <SectionLabel label="03 // projects" />
+        <SectionLabel label="01 // projects" />
 
         <div className="flex items-end justify-between mt-6 mb-12 flex-wrap gap-4">
           <h2 className="text-3xl font-sans font-semibold text-white">
@@ -94,12 +94,24 @@ export default function Projects() {
               className={`card-glass rounded-xl p-5 flex flex-col gap-4 hover:scale-[1.02] transition-all duration-200 group border ${typeStyles[project.type]}`}
             >
               <div className="flex items-start justify-between">
-                <div className="w-10 h-10 rounded-lg bg-navy-800 border border-slate-700/50 flex items-center justify-center">
-                  {project.type === 'gov'
-                    ? <Server size={16} className="text-denr-light" />
-                    : <Globe size={16} className="text-blue-400" />
-                  }
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-navy-800 border border-slate-700/50 flex items-center justify-center">
+                    {project.type === 'gov'
+                      ? <Server size={16} className="text-denr-light" />
+                      : <Globe size={16} className="text-blue-400" />
+                    }
+                  </div>
+                  
+                  {/* LIVE INDICATOR BADGE */}
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 bg-red-950/30 border border-red-500/20 rounded-md font-mono text-[10px] tracking-wider text-red-400">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                    LIVE
+                  </div>
                 </div>
+
                 <ExternalLink size={14} className="text-slate-600 group-hover:text-slate-400 transition-colors mt-1" />
               </div>
 
