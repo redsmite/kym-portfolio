@@ -5,9 +5,9 @@ import { SectionLabel } from './About'
 const projects = [
   {
     name: 'iCOPS',
-    description: 'DENR-NCR i-Centralized Online Permitting and Services System.',
+    description: 'DENR-NCR i-Centralized Online Permitting and Services System. Aimed to centralized all DENR-NCR services into one system.',
     url: 'https://denrncrsys.online:8208/',
-    tags: ['Government', 'Web App', 'Internal'],
+    tags: ['Government', 'Web App', 'Public'],
     type: 'gov',
   },
   {
@@ -21,7 +21,14 @@ const projects = [
     name: 'COTS',
     description: 'Certificate of Transshipment Online System, streamlining transshipment certificates from Port lntegrated Clearance Office (PICO).',
     url: 'https://denrncrsys.online:8001/',
-    tags: ['Government', 'Transactions', 'Internal'],
+    tags: ['Government', 'Certificate', 'Internal'],
+    type: 'gov',
+  },
+  {
+    name: 'CAMS',
+    description: 'Consumable Asset Management System, Used by the procurement section to distribute and inventory of consumable items, aimed to centralized all the regional\'s consumable items',
+    url: 'https://denrncrsys.online:8002/',
+    tags: ['Government', 'Inventory', 'Internal'],
     type: 'gov',
   },
   {
@@ -53,7 +60,7 @@ const projects = [
     type: 'public',
   },
   {
-    name: 'WRUS ENRA',
+    name: 'Water Resouces Management Lecture - ENRA 2026',
     description: 'Interactive educational used to teach ENRA student with Quizzes, Power Point Presentation, Flash Cards, Learning Modules, Glossary, and Video Reference',
     url: 'https://wrus.vercel.app/',
     tags: ['React', 'Vercel', 'ENRA', 'Education'],
@@ -72,7 +79,7 @@ export default function Projects() {
 
         <div className="flex items-end justify-between mt-4 mb-12 flex-wrap gap-4">
           <h2 className="text-3xl font-bold text-gray-900">
-            Systems & public tools
+            Government Systems & Personal Projects
           </h2>
           <div className="flex gap-4 text-xs font-medium">
             <span className="flex items-center gap-1.5 text-gray-500">
@@ -99,7 +106,7 @@ export default function Projects() {
         {/* Public tools */}
         <div>
           <p className="text-xs font-semibold text-denr-blue uppercase tracking-widest mb-5 flex items-center gap-2">
-            <Globe size={12} /> Public Tools
+            <Globe size={12} /> Personal Projects
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {publicProjects.map(project => (
