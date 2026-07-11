@@ -5,7 +5,7 @@ const skillGroups = [
   {
     category: 'Development & Tools',
     color: 'blue',
-    skills: ['React', 'React Native', 'Node.js / Express', 'Laravel', 'CodeIgniter', 'JQuery', 'Django', 'FastAPI', 'Docker', 'GitHub', 'Kotlin / Gradle', 'SQL', 'WordPress', 'Joomla'],
+    skills: ['React', 'React Native', 'Node.js / Express', 'Laravel', 'CodeIgniter', 'JQuery', 'Django', 'FastAPI', 'Docker', 'GitHub', 'Kotlin / Gradle', 'SQL', 'MongoDB', 'WordPress', 'Joomla'],
   },
   {
     category: 'Networking',
