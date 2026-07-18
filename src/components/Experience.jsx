@@ -102,7 +102,7 @@ const certifications = [
     issuer: 'Fortinet',
     date: 'Mar 2026',
     url: 'https://www.credly.com/badges/be3fff47-06a6-4f54-be51-9bcf7a06e48a',
-    category: 'cybersecurity',
+    category: 'security',
   },
   {
     name: 'Network Technician Career Path',
