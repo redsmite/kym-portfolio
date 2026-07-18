@@ -98,6 +98,13 @@ const certifications = [
     highlight: true,
   },
   {
+    name: 'Fortinet NSE 1 Certified in Cybersecurity',
+    issuer: 'Fortinet',
+    date: 'Mar 2026',
+    url: 'https://www.credly.com/badges/be3fff47-06a6-4f54-be51-9bcf7a06e48a',
+    category: 'cybersecurity',
+  },
+  {
     name: 'Network Technician Career Path',
     issuer: 'Cisco Networking Academy',
     date: 'Dec 2025',

@@ -5,8 +5,9 @@ const roles = [
   'Full-Stack Web Developer',
   'Network Administrator',
   'CCNA-Certified Professional',
-  'Government ICT Officer',
+  'Administrative Officer',
   'React & Laravel Specialist',
+  'Cybersecurity Enthusiast',
 ]
 
 export default function Hero() {
